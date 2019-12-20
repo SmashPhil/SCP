@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+	<IncidentDef>
+		<defName>SCP939_Group</defName>
+		<label>SCP939</label>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<workerClass>SCP.IncidentWorker_SCP939</workerClass>
+		<baseChance>2.0</baseChance>
+		<minRefireDays>20</minRefireDays>
+		<category>ThreatBig</category>
+		<pointsScaleable>true</pointsScaleable>
+		<tale>ManhunterPack</tale>
+	</IncidentDef>
+</Defs>
