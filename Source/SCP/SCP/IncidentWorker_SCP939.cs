@@ -18,13 +18,23 @@ namespace SCP
             return RCellFinder.TryFindRandomPawnEntryCell(out IntVec3 intVec, map, CellFinder.EdgeRoadChance_Animal, false, null);
         }
 
+        private void ResolveArrivalPoints(IncidentParms parms)
+        {
+            if (parms.points <= 0f)
+            {
+                Log.Error("RaidEnemy is resolving raid points. They should always be set before initiating the incident.", false);
+                parms.points = StorytellerUtility.DefaultThreatPointsNow(parms.target);
+            }
+        }
+
         protected override bool TryExecuteWorker(IncidentParms parms)
         {
+            this.ResolveArrivalPoints(parms);
             Map map = (Map)parms.target;
             PawnKindDef scp939 = PawnKindDefOf_SCP.SCP_939_PawnKindDef;
             if(scp939 is null)
                 return false;
-            float num = StorytellerUtility.DefaultThreatPointsNow(map);
+            float num = parms.points;
             int num2 = GenMath.RoundRandom(num / scp939.combatPower);
             int numMax = Rand.RangeInclusive(15, 20);
             num2 = Mathf.Clamp(num2, 1, numMax);
