@@ -7,6 +7,7 @@ using Harmony;
 using Verse;
 using Verse.AI;
 using RimWorld;
+using UnityEngine;
 using OpCodes = System.Reflection.Emit.OpCodes;
 
 namespace SCP
@@ -29,7 +30,12 @@ namespace SCP
             harmony.Patch(original: AccessTools.Method(type: typeof(FoodUtility), name: nameof(FoodUtility.IsAcceptablePreyFor)),
                 prefix: new HarmonyMethod(type: typeof(SCPHarmony),
                 name: nameof(SCP939_HumansOnlyAcceptablePrey)));
-
+            harmony.Patch(original: AccessTools.Method(type: typeof(Pawn), name: "TicksPerMove"), prefix: null,
+                postfix: new HarmonyMethod(type: typeof(SCPHarmony),
+                name: nameof(SCP939_VoicesMovementSpeed)));
+            harmony.Patch(original: AccessTools.Method(type: typeof(JobDriver_PredatorHunt), name: "CheckWarnPlayer"),
+                prefix: new HarmonyMethod(type: typeof(SCPHarmony),
+                name: nameof(SCP939_DontWarnPlayerHunted)));
             #endregion Functions
         }
 
@@ -55,6 +61,22 @@ namespace SCP
                 return false;
             }
             return true;
+        }
+
+        public static void SCP939_VoicesMovementSpeed(bool diagonal, Pawn __instance, ref int __result)
+        {
+            if(__instance.TryGetComp<CompVoices>() != null)
+            {
+                if(__instance.GetComp<CompVoices>().VoicesActive)
+                    __result *= 10;
+                else if(__instance.GetComp<CompVoices>().TargetLured)
+                    __result *= 10000;
+            }
+        }
+
+        public static bool SCP939_DontWarnPlayerHunted(JobDriver_PredatorHunt __instance)
+        {
+            return __instance.pawn.GetComp<CompVoices>() is null;
         }
 
         #endregion 939

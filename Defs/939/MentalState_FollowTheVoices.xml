@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+	<MentalStateDef ParentName="BaseMentalState">
+		<defName>FollowTheVoices</defName>
+		<stateClass>SCP.MentalState_Voices</stateClass>
+		<label>...</label>
+		<category>Misc</category>
+		<moodRecoveryThought>Chitchat</moodRecoveryThought>
+		<blockNormalThoughts>true</blockNormalThoughts>
+		<nameColor>(255, 60, 0)</nameColor>
+		<minTicksBeforeRecovery>5000</minTicksBeforeRecovery>
+		<recoveryMtbDays>0.5</recoveryMtbDays>
+		<maxTicksBeforeRecovery>7000</maxTicksBeforeRecovery>
+		<recoveryMessage>{0} has snapped out of it.</recoveryMessage>
+		<baseInspectLine>Mental state: Following the voices...</baseInspectLine>
+	</MentalStateDef>
+</Defs>

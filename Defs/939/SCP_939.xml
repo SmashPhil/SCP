@@ -6,10 +6,10 @@
     <label>SCP 939</label>
     <description>Input description here</description>
     <statBases>
-      <MoveSpeed>5.4</MoveSpeed>
-      <MarketValue>450</MarketValue>
-	  <Mass>250</Mass>
-      <ComfyTemperatureMin>-50</ComfyTemperatureMin>
+		<MoveSpeed>5.4</MoveSpeed>
+		<MarketValue>450</MarketValue>
+		<Mass>250</Mass>
+		<ComfyTemperatureMin>-50</ComfyTemperatureMin>
     </statBases>
     <tools>
       <li>
@@ -126,6 +126,14 @@
       <soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
     </race>
+	
+	<comps>
+		<li Class="SCP.CompProperties_Voices">
+			<voiceRange>50</voiceRange>
+			<directAttackRange>25</directAttackRange>
+			<startPounceOnLuredTargetRange>20</startPounceOnLuredTargetRange>
+		</li>
+	</comps>
   </ThingDef>
   
   <PawnKindDef ParentName="AnimalKindBase">

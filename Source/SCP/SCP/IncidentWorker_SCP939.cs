@@ -14,13 +14,16 @@ namespace SCP
         {
             if(!base.CanFireNowSub(parms))
                 return false;
+            
             Map map = (Map)parms.target;
+            if(GenLocalDate.HourOfDay(map) < 19 && GenLocalDate.HourOfDay(map) > 5)
+                return false;
             return RCellFinder.TryFindRandomPawnEntryCell(out IntVec3 intVec, map, CellFinder.EdgeRoadChance_Animal, false, null);
         }
 
         private void ResolveArrivalPoints(IncidentParms parms)
         {
-            if (parms.points <= 0f)
+            if(parms.points <= 0f)
             {
                 Log.Error("RaidEnemy is resolving raid points. They should always be set before initiating the incident.", false);
                 parms.points = StorytellerUtility.DefaultThreatPointsNow(parms.target);
@@ -38,9 +41,8 @@ namespace SCP
             int num2 = GenMath.RoundRandom(num / scp939.combatPower);
             int numMax = Rand.RangeInclusive(15, 20);
             num2 = Mathf.Clamp(num2, 1, numMax);
-            int num3 = Rand.RangeInclusive(40000, 60000);
-            IntVec3 intVec;
-            if(!RCellFinder.TryFindRandomPawnEntryCell(out intVec, map, CellFinder.EdgeRoadChance_Animal, false, null))
+            int num3 = HoursTillDawn(map) * 2500;
+            if(!RCellFinder.TryFindRandomPawnEntryCell(out IntVec3 intVec, map, CellFinder.EdgeRoadChance_Animal, false, null))
                 return false;
             Pawn pawn = null;
             for (int i = 0; i < num2; i++)
@@ -51,6 +53,14 @@ namespace SCP
             }
             Find.LetterStack.ReceiveLetter("LetterSCP939Enters".Translate().CapitalizeFirst(), "LetterSCP939EntersText".Translate(), LetterDefOf.ThreatBig, pawn, null, null);
             return true;
+        }
+        
+        private int HoursTillDawn(Map map)
+        {
+            int hour = GenLocalDate.HourOfDay(map);
+            if(hour <= 6)
+                return 6 - hour;
+            return 24 - hour + 6;
         }
     }
 }

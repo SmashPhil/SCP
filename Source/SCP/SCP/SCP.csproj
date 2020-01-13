@@ -50,10 +50,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompProperties_Voices.cs" />
+    <Compile Include="CompVoices.cs" />
+    <Compile Include="DialogSettings.cs" />
     <Compile Include="IncidentWorker_SCP939.cs" />
+    <Compile Include="MentalStateDefOf_SCP.cs" />
+    <Compile Include="MentalState_Voices.cs" />
     <Compile Include="PawnKindDefOf_SCP.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SCPHarmony.cs" />
+    <Compile Include="SPExtra.cs" />
+    <Compile Include="SPMultiCell.cs" />
+    <Compile Include="SPTrig.cs" />
+    <Compile Include="SPTuples.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
