@@ -109,7 +109,7 @@ namespace SCP
                     voiceAttempted.Second = true;
                     
                     int chanceToLure = (int)Mathf.Lerp(0f, 50f, ( (voiceAttempted.Third != null ? this.targetHunted.relations.OpinionOf(voiceAttempted.Third) : 0) + 100) / 200f);
-                    Log.Message(chanceToLure + "%");
+                    //Log.Message(chanceToLure + "%");
                     //chanceToLure *= 999;
                     if(chanceToLure > Rand.Range(0, 100))
                     {
