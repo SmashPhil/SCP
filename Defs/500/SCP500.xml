@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="DrugPillBase">
+		<defName>SCP500</defName>
+		<label>SCP-500</label>
+		<description>Item #: 500\n\nObject Class: Safe\n\nDescription: Red pills. One pill, when taken orally, effectively cures the subject of all diseases within two hours.\n\nContainment procedures: none.</description>
+		<graphicData>
+		  <texPath>Things/Item/Drug/Penoxycyline</texPath>
+		  <graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<socialPropernessMatters>false</socialPropernessMatters>
+		<rotatable>false</rotatable>
+		<statBases>
+		  <MarketValue>20000</MarketValue>
+		  <Mass>0.005</Mass>
+		  <Flammability>0.7</Flammability>
+		</statBases>
+		<techLevel>Ultra</techLevel>
+		<ingestible>
+		  <drugCategory>Medical</drugCategory>
+		  <outcomeDoers>
+			<li Class="IngestionOutcomeDoer_GiveHediff">
+			  <hediffDef>SCP500High</hediffDef>
+			  <severity>1.0</severity>
+			</li>
+		  </outcomeDoers>
+		</ingestible>
+		<comps>
+		  <li Class="CompProperties_Drug">
+			<listOrder>1001</listOrder>
+		  </li>
+		</comps>
+	</ThingDef>
+  
+  <HediffDef>
+    <defName>SCP500High</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <label>SCP-500</label>
+    <defaultLabelColor>(0.1,0.9,0.1)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-12</severityPerDay> <!-- 0.5/hr, lasts 2 hours -->
+      </li>
+	  <li Class="SCP.HediffCompProperties_CureDisease">
+		<immunityIncrease>0.05</immunityIncrease>
+		<ticksPerHeal>250</ticksPerHeal> <!-- so 20 pulses until fully healed -->
+	  </li>
+    </comps>
+  </HediffDef>
+</Defs>

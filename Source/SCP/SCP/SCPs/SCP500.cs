@@ -34,7 +34,7 @@ namespace SCP
                     HediffComp_Immunizable hci;
                     if ((hci = h.TryGetComp<HediffComp_Immunizable>()) != null && !hci.FullyImmune)
                     {
-                        base.Pawn.health.immunity.GetImmunityRecord(h.def).immunity = Mathf.Clamp01(hci.Immunity + Props.severityReduction);
+                        base.Pawn.health.immunity.GetImmunityRecord(h.def).immunity = Mathf.Clamp01(hci.Immunity + Props.immunityIncrease);
                     }
                 }
             }
@@ -54,7 +54,7 @@ namespace SCP
     }
     public class HediffCompProperties_CureDisease : HediffCompProperties
     {
-        public float severityReduction;
+        public float immunityIncrease;
         public int ticksPerHeal;
 
         public HediffCompProperties_CureDisease()
