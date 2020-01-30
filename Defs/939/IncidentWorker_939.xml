@@ -8,10 +8,15 @@
 			<li>Map_PlayerHome</li>
 		</targetTags>
 		<workerClass>SCP.IncidentWorker_SCP939</workerClass>
+		<gameCondition>939WanderingTheArea</gameCondition>
 		<baseChance>2.0</baseChance>
 		<minRefireDays>20</minRefireDays>
 		<category>ThreatBig</category>
 		<pointsScaleable>true</pointsScaleable>
 		<tale>ManhunterPack</tale>
+		<durationDays>
+			<min>10</min>
+			<max>20</max>
+		</durationDays>
 	</IncidentDef>
 </Defs>

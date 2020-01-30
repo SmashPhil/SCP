@@ -50,19 +50,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompProperties_Voices.cs" />
-    <Compile Include="CompVoices.cs" />
+    <Compile Include="SCPs\939\GameCondition_SCP939.cs" />
+    <Compile Include="SCPs\939\JobDriver_LeaveMapPromptly.cs" />
+    <Compile Include="SCPs\939\CompProperties_Voices.cs" />
+    <Compile Include="SCPs\939\CompVoices.cs" />
     <Compile Include="DialogSettings.cs" />
-    <Compile Include="IncidentWorker_SCP939.cs" />
+    <Compile Include="JobDefOf_SCP.cs" />
+    <Compile Include="SCPs\939\IncidentWorker_SCP939.cs" />
     <Compile Include="MentalStateDefOf_SCP.cs" />
-    <Compile Include="MentalState_Voices.cs" />
+    <Compile Include="SCPs\939\MentalState_Voices.cs" />
     <Compile Include="PawnKindDefOf_SCP.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SCPHarmony.cs" />
-    <Compile Include="SPExtra.cs" />
-    <Compile Include="SPMultiCell.cs" />
-    <Compile Include="SPTrig.cs" />
-    <Compile Include="SPTuples.cs" />
+    <Compile Include="SCPs\SCP500.cs" />
+    <Compile Include="SPExt\SPExtra.cs" />
+    <Compile Include="SPExt\SPMultiCell.cs" />
+    <Compile Include="SPExt\SPTrig.cs" />
+    <Compile Include="SPExt\SPTuples.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

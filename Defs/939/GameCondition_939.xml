@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+	<GameConditionDef>
+		<defName>939WanderingTheArea</defName>
+		<conditionClass>SCP.GameCondition_SCP939</conditionClass>
+		<label>SCP939 In The Area</label>
+		<description>A group of SCP939 have been spotted in the area. Be on the alert.</description>
+		<endMessage>The pack no longer seems to be in the area.</endMessage>
+	</GameConditionDef>
+</Defs>

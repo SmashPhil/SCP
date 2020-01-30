@@ -2,5 +2,10 @@
 
 <LanguageData>
 	<LetterSCP939Enters>SCP939</LetterSCP939Enters>
-	<LetterSCP939EntersText>A pack of SCP939 have been spotted near the colony.</LetterSCP939EntersText>
+
+<LetterSCP939EntersText>A pack of SCP939 have been spotted near the area. Be on the lookout.
+	
+While they may not enter the area immediately, they may wander in and hunt any humanoids in the vicinity.
+</LetterSCP939EntersText>
+
 </LanguageData>
