@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 	<ThingDef ParentName="DrugPillBase">
-		<defName>SCP500</defName>
+		<defName>SCP500A</defName>
 		<label>SCP-500</label>
 		<description>Item #: 500\n\nObject Class: Safe\n\nDescription: Red pills. One pill, when taken orally, effectively cures the subject of all diseases within two hours.\n\nContainment procedures: none.</description>
 		<graphicData>
