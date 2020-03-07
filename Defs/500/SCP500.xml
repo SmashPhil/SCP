@@ -34,6 +34,7 @@
   
   <HediffDef>
     <defName>SCP500High</defName>
+	<description>wanna get high...?</description>
     <hediffClass>HediffWithComps</hediffClass>
     <label>SCP-500</label>
     <defaultLabelColor>(0.1,0.9,0.1)</defaultLabelColor>
