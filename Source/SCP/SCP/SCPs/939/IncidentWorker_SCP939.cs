@@ -43,7 +43,7 @@ namespace SCP
             num2 = Mathf.Clamp(num2, 1, numMax);
 
             int duration = Mathf.RoundToInt(this.def.durationDays.RandomInRange * 60000);
-            GameCondition_SCP939 cond = (GameCondition_SCP939)GameConditionMaker.MakeCondition(this.def.gameCondition, duration, 0);
+            GameCondition_SCP939 cond = (GameCondition_SCP939)GameConditionMaker.MakeCondition(this.def.gameCondition, duration);
             cond.scp939Count = num2;
             parms.target.GameConditionManager.RegisterCondition(cond);
             Find.LetterStack.ReceiveLetter("LetterSCP939Enters".Translate().CapitalizeFirst(), "LetterSCP939EntersText".Translate(), LetterDefOf.ThreatBig);

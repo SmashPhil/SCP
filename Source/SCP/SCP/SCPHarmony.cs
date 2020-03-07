@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Harmony;
+using HarmonyLib;
 using Verse;
 using Verse.AI;
 using RimWorld;
@@ -18,7 +18,7 @@ namespace SCP
     {
         static SCPHarmony()
         {
-            var harmony = HarmonyInstance.Create("rimworld.scp.smashphil");
+            var harmony = new Harmony("rimworld.scp.smashphil");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
             //HarmonyInstance.DEBUG = true;
 
@@ -26,23 +26,23 @@ namespace SCP
 
             //SCP939
             harmony.Patch(original: AccessTools.Method(type: typeof(Need_Food), name: nameof(Need_Food.NeedInterval)), prefix: null,
-                postfix: new HarmonyMethod(type: typeof(SCPHarmony),
-                name: nameof(SCP939_Starving)));
+                postfix: new HarmonyMethod(typeof(SCPHarmony),
+                nameof(SCP939_Starving)));
             harmony.Patch(original: AccessTools.Method(type: typeof(FoodUtility), name: nameof(FoodUtility.IsAcceptablePreyFor)),
-                prefix: new HarmonyMethod(type: typeof(SCPHarmony),
-                name: nameof(SCP939_HumansOnlyAcceptablePrey)));
+                prefix: new HarmonyMethod(typeof(SCPHarmony),
+                nameof(SCP939_HumansOnlyAcceptablePrey)));
             harmony.Patch(original: AccessTools.Method(type: typeof(Pawn), name: "TicksPerMove"), prefix: null,
-                postfix: new HarmonyMethod(type: typeof(SCPHarmony),
-                name: nameof(SCP939_VoicesMovementSpeed)));
+                postfix: new HarmonyMethod(typeof(SCPHarmony),
+                nameof(SCP939_VoicesMovementSpeed)));
             harmony.Patch(original: AccessTools.Method(type: typeof(JobDriver_PredatorHunt), name: "CheckWarnPlayer"),
-                prefix: new HarmonyMethod(type: typeof(SCPHarmony),
-                name: nameof(SCP939_DontWarnPlayerHunted)));
+                prefix: new HarmonyMethod(typeof(SCPHarmony),
+                nameof(SCP939_DontWarnPlayerHunted)));
             harmony.Patch(original: AccessTools.Method(type: typeof(Pawn), name: nameof(Pawn.TickRare)), prefix: null,
-                postfix: new HarmonyMethod(type: typeof(SCPHarmony),
-                name: nameof(TickMindstateLeaveDaylight)));
+                postfix: new HarmonyMethod(typeof(SCPHarmony),
+                nameof(TickMindstateLeaveDaylight)));
             harmony.Patch(original: AccessTools.Method(type: typeof(WorldPawns), name: nameof(WorldPawns.GetSituation)), prefix: null,
-                postfix: new HarmonyMethod(type: typeof(SCPHarmony),
-                name: nameof(SituationSCPEvent)));
+                postfix: new HarmonyMethod(typeof(SCPHarmony),
+                nameof(SituationSCPEvent)));
             #endregion Functions
         }
 

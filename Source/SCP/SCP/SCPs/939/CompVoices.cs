@@ -7,7 +7,7 @@ using Verse;
 using Verse.AI;
 using SPExtended;
 using UnityEngine;
-using Harmony;
+using HarmonyLib;
 
 namespace SCP
 {

@@ -13,7 +13,6 @@ namespace SCP
         public override void Init()
         {
             base.Init();
-            Log.Message("Event: " + scp939Count);
             scp939_GeneratedTotal = 0;
             scp939Generated = new List<Pawn>();
         }
@@ -79,7 +78,7 @@ namespace SCP
                 {
                     Pawn pawn = null;
                     PawnGenerationRequest request = new PawnGenerationRequest(PawnKindDefOf_SCP.SCP_939_PawnKindDef, null, PawnGenerationContext.NonPlayer, SingleMap.Tile, false, false, false, false, false, true,
-                        1f, false, false, false, false, false, false, false, null, null, null, null, null, null, null, null);
+                        0f, false, false, false, false, false, false, false, true, 0f, null, 0f, null, null, null, null, null, null, null, null, null, null, null, null);
                     pawn = PawnGenerator.GeneratePawn(request);
                     scp939_GeneratedTotal++;
                     scp939Generated.Add(pawn);
